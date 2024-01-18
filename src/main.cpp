@@ -129,7 +129,7 @@ void mapWorkspacesToMonitors()
         std::string logMessage =
             "[split-monitor-workspaces] Mapping workspaces " + std::to_string(workspaceIndex) + "-" + std::to_string(workspaceIndex + workspaceCount - 1) + " to monitor " + monitor->szName;
 
-        HyprlandAPI::addNotification(PHANDLE, logMessage, s_pluginColor, 5000);
+        // HyprlandAPI::addNotification(PHANDLE, logMessage, s_pluginColor, 5000);
 
         for (int i = workspaceIndex; i < workspaceIndex + workspaceCount; i++) {
             std::string workspaceName = std::to_string(i);
@@ -177,7 +177,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 
     mapWorkspacesToMonitors();
 
-    HyprlandAPI::addNotification(PHANDLE, "[split-monitor-workspaces] Initialized successfully!", s_pluginColor, 5000);
+    // HyprlandAPI::addNotification(PHANDLE, "[split-monitor-workspaces] Initialized successfully!", s_pluginColor, 5000);
 
     e_monitorAddedHandle = HyprlandAPI::registerCallbackDynamic(PHANDLE, "monitorAdded", refreshMapping);
     e_monitorRemovedHandle = HyprlandAPI::registerCallbackDynamic(PHANDLE, "monitorRemoved", refreshMapping);
@@ -187,7 +187,7 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle)
 
 APICALL EXPORT void PLUGIN_EXIT()
 {
-    HyprlandAPI::addNotification(PHANDLE, "[split-monitor-workspaces] Unloaded successfully!", s_pluginColor, 5000);
+    // HyprlandAPI::addNotification(PHANDLE, "[split-monitor-workspaces] Unloaded successfully!", s_pluginColor, 5000);
 
     g_vMonitorWorkspaceMap.clear();
 }
